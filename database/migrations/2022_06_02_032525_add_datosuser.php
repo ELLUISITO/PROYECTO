@@ -15,8 +15,8 @@ class AddDatosuser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
            
-            $table->string('rol');
-            $table->string('estado');
+            $table->string('rol')->default('1');
+            $table->string('estado')->default('1');
             $table->string('segundo_nombre');
             $table->string('apellido');
         });

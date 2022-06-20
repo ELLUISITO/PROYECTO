@@ -25,34 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="rol" class="col-md-4 col-form-label text-md-end">{{ __('rol') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="rol" type="text" class="form-control @error('rol') is-invalid @enderror" name="rol" value="{{ old('rol') }}" required autocomplete="rol" autofocus>
-
-                                @error('rol')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="estado" class="col-md-4 col-form-label text-md-end">{{ __('estado') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="estado" type="text" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{ old('estado') }}" required autocomplete="estado" autofocus>
-
-                                @error('estado')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
+                  
                         <div class="row mb-3">
                             <label for="segundo_nombre" class="col-md-4 col-form-label text-md-end">{{ __('segundo nombre') }}</label>
 

@@ -3,9 +3,10 @@
         
         <div class="form-group">
             {{ Form::label('id_restaurantes') }}
-            {{ Form::text('id_restaurantes', $horario->id_restaurantes, ['class' => 'form-control' . ($errors->has('id_restaurantes') ? ' is-invalid' : ''), 'placeholder' => 'Id Restaurantes']) }}
+            {{ Form::select('id_restaurantes',$restaurante, $horario->id_restaurantes, ['class' => 'form-control' . ($errors->has('id_restaurantes') ? ' is-invalid' : ''), 'placeholder' => 'Id Restaurantes']) }}
             {!! $errors->first('id_restaurantes', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
         <div class="form-group">
             {{ Form::label('dia_semana') }}
             {{ Form::text('dia_semana', $horario->dia_semana, ['class' => 'form-control' . ($errors->has('dia_semana') ? ' is-invalid' : ''), 'placeholder' => 'Dia Semana']) }}

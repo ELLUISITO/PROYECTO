@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Restaurante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class RestauranteController
@@ -18,7 +19,7 @@ class RestauranteController extends Controller
      */
     public function index()
     {
-        $restaurantes = Restaurante::paginate();
+        $restaurantes = Restaurante::where('id_usuarios',Auth::id())->paginate();
 
         return view('restaurante.index', compact('restaurantes'))
             ->with('i', (request()->input('page', 1) - 1) * $restaurantes->perPage());
@@ -32,7 +33,11 @@ class RestauranteController extends Controller
     public function create()
     {
         $restaurante = new Restaurante();
-        return view('restaurante.create', compact('restaurante'));
+        $user = Auth::user();
+
+        //return response()->json(['user' =>$user]);
+        
+        return view('restaurante.create', compact('restaurante'))->with('user',$user);
     }
 
     /**
@@ -45,6 +50,13 @@ class RestauranteController extends Controller
     {
         request()->validate(Restaurante::$rules);
 
+        //$request->id_usuarios = Auth::id();
+
+        //return response()->json($request->id_usuarios, 200, $headers);
+
+        //$restaurante = Restaurante::create($request->all() + ['id_usuarios' => auth()->id()]);
+
+        //DB::update('update users set votes = 100 where name = ?', ['John']);
         $restaurante = Restaurante::create($request->all());
 
         return redirect()->route('restaurantes.index')
@@ -73,8 +85,9 @@ class RestauranteController extends Controller
     public function edit($id)
     {
         $restaurante = Restaurante::find($id);
+        $user = Auth::user();
 
-        return view('restaurante.edit', compact('restaurante'));
+        return view('restaurante.edit', compact('restaurante'))->with('user',$user);
     }
 
     /**

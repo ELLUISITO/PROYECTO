@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('id_restaurantes') }}
-            {{ Form::text('id_restaurantes', $tiposocasione->id_restaurantes, ['class' => 'form-control' . ($errors->has('id_restaurantes') ? ' is-invalid' : ''), 'placeholder' => 'Id Restaurantes']) }}
+            {{ Form::select('id_restaurantes',$restaurante, $tiposocasione->id_restaurantes, ['class' => 'form-control' . ($errors->has('id_restaurantes') ? ' is-invalid' : ''), 'placeholder' => 'Id Restaurantes']) }}
             {!! $errors->first('id_restaurantes', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

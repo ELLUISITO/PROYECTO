@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Tiposocasione;
 use Illuminate\Http\Request;
+use App\Http\Controllers;
+use App\Restaurante;
+
 
 /**
  * Class TiposocasioneController
@@ -32,7 +35,8 @@ class TiposocasioneController extends Controller
     public function create()
     {
         $tiposocasione = new Tiposocasione();
-        return view('tiposocasione.create', compact('tiposocasione'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('tiposocasione.create', compact('tiposocasione','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class TiposocasioneController extends Controller
     public function edit($id)
     {
         $tiposocasione = Tiposocasione::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('tiposocasione.edit', compact('tiposocasione'));
+        return view('tiposocasione.edit', compact('tiposocasione','restaurante'));
     }
 
     /**

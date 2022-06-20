@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Tiposcomida;
 use Illuminate\Http\Request;
+use App\Restaurante;
+use App\Http\Controllers;
+
 
 /**
  * Class TiposcomidaController
@@ -32,7 +35,8 @@ class TiposcomidaController extends Controller
     public function create()
     {
         $tiposcomida = new Tiposcomida();
-        return view('tiposcomida.create', compact('tiposcomida'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('tiposcomida.create', compact('tiposcomida','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class TiposcomidaController extends Controller
     public function edit($id)
     {
         $tiposcomida = Tiposcomida::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('tiposcomida.edit', compact('tiposcomida'));
+        return view('tiposcomida.edit', compact('tiposcomida','restaurante'));
     }
 
     /**

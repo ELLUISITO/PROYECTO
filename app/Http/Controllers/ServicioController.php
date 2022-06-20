@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
+use App\Restaurante;
+use App\Http\Controllers;
+
 
 /**
  * Class ServicioController
@@ -32,7 +35,8 @@ class ServicioController extends Controller
     public function create()
     {
         $servicio = new Servicio();
-        return view('servicio.create', compact('servicio'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('servicio.create', compact('servicio','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class ServicioController extends Controller
     public function edit($id)
     {
         $servicio = Servicio::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('servicio.edit', compact('servicio'));
+        return view('servicio.edit', compact('servicio','restaurante'));
     }
 
     /**

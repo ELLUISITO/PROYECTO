@@ -32,7 +32,8 @@ class UbicacioneController extends Controller
     public function create()
     {
         $ubicacione = new Ubicacione();
-        return view('ubicacione.create', compact('ubicacione'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('ubicacione.create', compact('ubicacione','restaurante'));
     }
 
     /**
@@ -73,8 +74,9 @@ class UbicacioneController extends Controller
     public function edit($id)
     {
         $ubicacione = Ubicacione::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('ubicacione.edit', compact('ubicacione'));
+        return view('ubicacione.edit', compact('ubicacione','restaurante'));
     }
 
     /**

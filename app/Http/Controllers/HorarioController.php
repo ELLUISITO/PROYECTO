@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Horario;
+use App\Restaurante;
+use App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class HorarioController
@@ -32,7 +35,8 @@ class HorarioController extends Controller
     public function create()
     {
         $horario = new Horario();
-        return view('horario.create', compact('horario'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('horario.create', compact('horario','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class HorarioController extends Controller
     public function edit($id)
     {
         $horario = Horario::find($id);
-
-        return view('horario.edit', compact('horario'));
+        $user = Auth::user();
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('horario.edit', compact('horario','restaurante'))->with('user',$user);
     }
 
     /**

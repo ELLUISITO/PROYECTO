@@ -2,8 +2,14 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('id_usuarios') }}
-            {{ Form::text('id_usuarios', $restaurante->id_usuarios, ['class' => 'form-control' . ($errors->has('id_usuarios') ? ' is-invalid' : ''), 'placeholder' => 'Id Usuarios']) }}
+            {{ Form::label('Usuario') }}
+            <div class="row">
+                {{ Form::label($user->name) }}
+            </div>
+            
+            {{ Form::hidden('id_usuarios', Auth::id(), ['']) }}
+            
+            
             {!! $errors->first('id_usuarios', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

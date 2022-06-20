@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Redessociale;
 use Illuminate\Http\Request;
+use App\Http\Controllers;
+use App\Restaurante;
+
+
 
 /**
  * Class RedessocialeController
@@ -32,7 +36,8 @@ class RedessocialeController extends Controller
     public function create()
     {
         $redessociale = new Redessociale();
-        return view('redessociale.create', compact('redessociale'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('redessociale.create', compact('redessociale','restaurante'));
     }
 
     /**
@@ -73,8 +78,9 @@ class RedessocialeController extends Controller
     public function edit($id)
     {
         $redessociale = Redessociale::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('redessociale.edit', compact('redessociale'));
+        return view('redessociale.edit', compact('redessociale','restaurante'));
     }
 
     /**

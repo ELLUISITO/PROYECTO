@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Replegal;
 use Illuminate\Http\Request;
+use App\Restaurante;
+use App\Http\Controllers;
+
 
 /**
  * Class ReplegalController
@@ -32,7 +35,8 @@ class ReplegalController extends Controller
     public function create()
     {
         $replegal = new Replegal();
-        return view('replegal.create', compact('replegal'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('replegal.create', compact('replegal','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class ReplegalController extends Controller
     public function edit($id)
     {
         $replegal = Replegal::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('replegal.edit', compact('replegal'));
+        return view('replegal.edit', compact('replegal','restaurante'));
     }
 
     /**

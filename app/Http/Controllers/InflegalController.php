@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Inflegal;
 use Illuminate\Http\Request;
+use App\Restaurante;
+use App\Http\Controllers;
+
 
 /**
  * Class InflegalController
@@ -32,7 +35,8 @@ class InflegalController extends Controller
     public function create()
     {
         $inflegal = new Inflegal();
-        return view('inflegal.create', compact('inflegal'));
+        $restaurante=restaurante::pluck('nombre_restauarante');
+        return view('inflegal.create', compact('inflegal','restaurante'));
     }
 
     /**
@@ -73,8 +77,9 @@ class InflegalController extends Controller
     public function edit($id)
     {
         $inflegal = Inflegal::find($id);
+        $restaurante=restaurante::pluck('nombre_restauarante');
 
-        return view('inflegal.edit', compact('inflegal'));
+        return view('inflegal.edit', compact('inflegal','restaurante'));
     }
 
     /**
