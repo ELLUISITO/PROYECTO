@@ -35,7 +35,7 @@ class TiposcomidaController extends Controller
     public function create()
     {
         $tiposcomida = new Tiposcomida();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');        
         return view('tiposcomida.create', compact('tiposcomida','restaurante'));
     }
 
@@ -77,8 +77,7 @@ class TiposcomidaController extends Controller
     public function edit($id)
     {
         $tiposcomida = Tiposcomida::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
-
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('tiposcomida.edit', compact('tiposcomida','restaurante'));
     }
 

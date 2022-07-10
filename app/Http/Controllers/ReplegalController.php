@@ -6,6 +6,7 @@ use App\Replegal;
 use Illuminate\Http\Request;
 use App\Restaurante;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -35,7 +36,7 @@ class ReplegalController extends Controller
     public function create()
     {
         $replegal = new Replegal();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');        
         return view('replegal.create', compact('replegal','restaurante'));
     }
 
@@ -77,8 +78,7 @@ class ReplegalController extends Controller
     public function edit($id)
     {
         $replegal = Replegal::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
-
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('replegal.edit', compact('replegal','restaurante'));
     }
 

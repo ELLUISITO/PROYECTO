@@ -27,6 +27,25 @@ class Horario extends Model
 		'dia_semana' => 'required',
 		'hora_apertura' => 'required',
 		'hora_cierre' => 'required',
+
+/*
+
+		'dia_semana_LV' => 'required',
+		'hora_apertura_LV' => 'required',
+		'hora_cierre_LV' => 'required',
+
+		'dia_semana_S' => 'required',
+		'hora_apertura_S' => 'required',
+		'hora_cierre_S' => 'required',
+
+		'dia_semana_DF' => 'required',
+		'hora_apertura_DF' => 'required',
+		'hora_cierre_DF' => 'required',    
+ */
+
+
+
+
     ];
 
     protected $perPage = 20;

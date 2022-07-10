@@ -43,6 +43,9 @@
                     <a class="nav-link" href="{{ route('replegals.index') }}">{{ __('Representante Legal') }}</a>
                     </li>
 
+                    <input type="submit" class="btn" value="Registrar Restaurante :D"/>
+
+
                 </div>
             </div>
         </div>

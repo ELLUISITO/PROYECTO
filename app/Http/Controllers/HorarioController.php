@@ -35,7 +35,7 @@ class HorarioController extends Controller
     public function create()
     {
         $horario = new Horario();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante=restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('horario.create', compact('horario','restaurante'));
     }
 
@@ -52,6 +52,7 @@ class HorarioController extends Controller
         $horario = Horario::create($request->all());
 
         return redirect()->route('horarios.index')
+
             ->with('success', 'Horario created successfully.');
     }
 
@@ -78,7 +79,7 @@ class HorarioController extends Controller
     {
         $horario = Horario::find($id);
         $user = Auth::user();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante=restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante');
         return view('horario.edit', compact('horario','restaurante'))->with('user',$user);
     }
 

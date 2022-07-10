@@ -6,6 +6,7 @@ use App\Servicio;
 use Illuminate\Http\Request;
 use App\Restaurante;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -35,7 +36,7 @@ class ServicioController extends Controller
     public function create()
     {
         $servicio = new Servicio();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');        
         return view('servicio.create', compact('servicio','restaurante'));
     }
 
@@ -77,8 +78,7 @@ class ServicioController extends Controller
     public function edit($id)
     {
         $servicio = Servicio::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
-
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('servicio.edit', compact('servicio','restaurante'));
     }
 

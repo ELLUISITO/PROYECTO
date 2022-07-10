@@ -6,6 +6,7 @@ use App\Tiposocasione;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Restaurante;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -35,7 +36,7 @@ class TiposocasioneController extends Controller
     public function create()
     {
         $tiposocasione = new Tiposocasione();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('tiposocasione.create', compact('tiposocasione','restaurante'));
     }
 
@@ -77,7 +78,7 @@ class TiposocasioneController extends Controller
     public function edit($id)
     {
         $tiposocasione = Tiposocasione::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
 
         return view('tiposocasione.edit', compact('tiposocasione','restaurante'));
     }

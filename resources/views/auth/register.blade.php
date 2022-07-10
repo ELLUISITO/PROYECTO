@@ -44,7 +44,8 @@
                             <label for="apellido" class="col-md-4 col-form-label text-md-end">{{ __('apellido') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus>
+                                <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" 
+                                name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus>
 
                                 @error('apellido')
                                     <span class="invalid-feedback" role="alert">

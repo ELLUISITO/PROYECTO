@@ -6,6 +6,7 @@ use App\Inflegal;
 use Illuminate\Http\Request;
 use App\Restaurante;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -35,7 +36,7 @@ class InflegalController extends Controller
     public function create()
     {
         $inflegal = new Inflegal();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('inflegal.create', compact('inflegal','restaurante'));
     }
 
@@ -77,7 +78,7 @@ class InflegalController extends Controller
     public function edit($id)
     {
         $inflegal = Inflegal::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
 
         return view('inflegal.edit', compact('inflegal','restaurante'));
     }

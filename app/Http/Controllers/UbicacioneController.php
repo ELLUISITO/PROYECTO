@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Ubicacione;
+use App\Restaurante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UbicacioneController
@@ -19,7 +21,6 @@ class UbicacioneController extends Controller
     public function index()
     {
         $ubicaciones = Ubicacione::paginate();
-
         return view('ubicacione.index', compact('ubicaciones'))
             ->with('i', (request()->input('page', 1) - 1) * $ubicaciones->perPage());
     }
@@ -32,7 +33,12 @@ class UbicacioneController extends Controller
     public function create()
     {
         $ubicacione = new Ubicacione();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        //$restaurante=restaurante::pluck('nombre_restauarante');
+
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
+
+    //    $restaurante = Restaurante::where('id_usuarios',Auth::id())->get();
+
         return view('ubicacione.create', compact('ubicacione','restaurante'));
     }
 

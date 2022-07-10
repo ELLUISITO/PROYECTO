@@ -6,6 +6,7 @@ use App\Redessociale;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Restaurante;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -36,7 +37,7 @@ class RedessocialeController extends Controller
     public function create()
     {
         $redessociale = new Redessociale();
-        $restaurante=restaurante::pluck('nombre_restauarante');
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('redessociale.create', compact('redessociale','restaurante'));
     }
 
@@ -78,8 +79,7 @@ class RedessocialeController extends Controller
     public function edit($id)
     {
         $redessociale = Redessociale::find($id);
-        $restaurante=restaurante::pluck('nombre_restauarante');
-
+        $restaurante = Restaurante::where('id_usuarios',Auth::id())->pluck('nombre_restauarante','id');
         return view('redessociale.edit', compact('redessociale','restaurante'));
     }
 

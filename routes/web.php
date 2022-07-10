@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/registro', function () {
+    return view('auth2.login_register');
+});
+Route::get('/registroRestaurante', function () {
+    return view('restaurante.Registrorestaurante.registro');
+});
 
 Auth::routes();
 Route::resource('restaurantes', App\Http\Controllers\RestauranteController::class);
-
 Route::resource('horarios', App\Http\Controllers\HorarioController::class);
 Route::resource('redessociales', App\Http\Controllers\RedessocialeController::class);
 Route::resource('servicios', App\Http\Controllers\ServicioController::class);
