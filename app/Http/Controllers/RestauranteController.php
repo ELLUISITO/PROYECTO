@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Restaurante;
 use App\Ubicacione;
 use App\Horario;
 use App\Inflegal;
 use App\Replegal;
 use App\Redessociale;
-
+use App\BD;
 use App\Servicio;
 use App\Tiposocasione;
 use App\Tiposcomida;
+use App\Imagene;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,11 +59,13 @@ class RestauranteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {      
 
-        dd($request->all());
 
-        return response()->json(['request' => $request->all()]);
+
+        // dd($request->all());
+
+        // return response()->json(['request' => $request->all()]);
 
 
         // request()->validate(Restaurante::$rules);
@@ -79,19 +83,32 @@ class RestauranteController extends Controller
 
         try {
 
+
+
         // RESTAURANTE   
         // $restaurante = Restaurante::create($request->all());
-        $ubicacion = Restaurante::create([
-            'id_usuarios'           =>  $restaurante->id,
-            'nombre_restauarante'   =>  $request->nombre_sede,
-            'descripcion'           =>  $request->departamento,
-            'telefono'              =>  $request->municipio,
-            'pagina_web'            =>  $request->codigo_postal,
-        ]);
 
 
+        $restaurante = Restaurante::create([
+            'id_usuarios'           =>  '1',
+            'nombre_restauarante'   =>  $request->nombre_restauarante,
+            'descripcion'           =>  $request->descripcion,
+            'telefono'              =>  $request->telefono,
+            'pagina_web'            =>  $request->pagina_web,
+        ]);        
 
 
+        // IMAGENES
+
+      //
+      //      'id_restaurantes' =>  $restaurante->id,
+      //      'res_ruta'        =>  $request->res_ruta ->file()->store('/','public'),
+      //      ->file('archivo')->store('public'),
+//
+       //   'res_ruta'        =>  $request->res_ruta,
+
+       //   file('archivo')->store('public');
+      //  ]);
         // Ubicacione
         $ubicacion = Ubicacione::create([
             'id_restaurantes' =>  $restaurante->id,
@@ -107,23 +124,27 @@ class RestauranteController extends Controller
         // Horarios
         $horarios = Horario::create([
             'id_restaurantes'  =>  $restaurante->id,
+            /*
+
             'dia_semana'       =>  $request->dia_semana, //Remplazar dia por categoria de horarios L-V, FSM, FVS
             'hora_apertura'    =>  $request->hora_apertura,
-            'hora_cierre'      =>  $request->hora_cierre,
-/*
-            
+            'hora_cierre'      =>  $request->hora_cierre, 
+            */  
+
+
+
             'dia_semana_LV'       =>  $request->dia_semana_LV, 
             'hora_apertura_LV'    =>  $request->hora_apertura_LV,
             'hora_cierre_LV'      =>  $request->hora_cierre_LV,
 
-            'dia_semana_S'       =>  $request->dia_semana_LV, 
-            'hora_apertura_S'    =>  $request->hora_apertura_LV,
-            'hora_cierre_S'      =>  $request->hora_cierre_LV,
+            'dia_semana_S'       =>  $request->dia_semana_S, 
+            'hora_apertura_S'    =>  $request->hora_apertura_S,
+            'hora_cierre_S'      =>  $request->hora_cierre_S,
 
-            'dia_semana_DF'       =>  $request->dia_semana_LV, 
-            'hora_apertura_DF'    =>  $request->hora_apertura_LV,
-            'hora_cierre_DF'      =>  $request->hora_cierre_LV,
-*/           
+            'dia_semana_DF'       =>  $request->dia_semana_DF, 
+            'hora_apertura_DF'    =>  $request->hora_apertura_DF,
+            'hora_cierre_DF'      =>  $request->hora_cierre_DF,
+          
         ]);
 
         // Información Legal
@@ -154,19 +175,19 @@ class RestauranteController extends Controller
         ]);
 
         // Tipo de servicios MODELO TIPO SERVICIO CUAL ES------------
-        $tipo_servicios = Servicios::create([
+        $tipo_servicios = Servicio::create([
             'id_restaurantes'  =>  $restaurante->id,
             'servicio'         =>  $request->servicio, 
         ]);
 
         // Tipo de Ocasiones 
-        $tipo_ocasiones = Tiposocasiones::create([
+        $tipo_ocasione= Tiposocasione::create([
             'id_restaurantes'    =>  $restaurante->id,
             'tipo_ocasion'       =>  $request->tipo_ocasion, 
         ]);
 
         // Tipo de Comidas
-        $tipo_comidas = Tiposcomidas::create([
+        $tipo_comidas = Tiposcomida::create([
             'id_restaurantes'    =>  $restaurante->id,
             'tipos_comida'       =>  $request->tipos_comida,
         ]);

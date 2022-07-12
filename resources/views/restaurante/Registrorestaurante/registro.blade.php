@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<form action=" {{ Route('restaurantes.store') }} " method="POST">
+			<form action=" {{ Route('restaurantes.store') }} " method="POST" role="form" enctype="multipart/form-data">
 
 				@csrf
 
@@ -98,7 +98,9 @@
 							
 							<label 
 								for="fileInput"
-								type="button"
+								type="file"
+								{{-- bottun --}}
+
 								class="cursor-pointer inine-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-lg shadow-sm text-left text-gray-600 bg-white hover:bg-gray-100 font-medium"
 							>
 								<svg xmlns="http://www.w3.org/2000/svg" class="inline-flex flex-shrink-0 w-6 h-6 -mt-1 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -111,7 +113,7 @@
 
 							<div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Clic para escoger una imagen</div>
 
-							<input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" @change="let file = document.getElementById('fileInput').files[0]; 
+							<input name="res_ruta" id="fileInput" accept="image/*" class="hidden" type="file" @change="let" file = document.getElementById('fileInput').files[0]; 
 								var reader = new FileReader();
 								reader.onload = (e) => image = e.target.result;
 								reader.readAsDataURL(file);">
@@ -226,42 +228,50 @@
 						<div class="mb-5">
 
 							<label for="horario" class="font-bold mb-1 text-orange-700 block" >Lunes a Viernes</label>
-							<input type="text" name="dia_semana_LV" value="Lunes a Viernes" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
+							<input type="text" name="dia_semana_LV" value="Lunes a Viernes" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="text" name="dia_semana_LV" value="Lunes a Viernes" min="00:00" max="23:00"  
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
  							<a class="mt-5 text-gray-600">Hora de apertura</a>
-							<input type="time" name="hora_apertura_LV" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
-
+							 <input type="time" name="hora_apertura_LV" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_apertura_LV" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
 							<a class="mt-5 text-gray-600">Hora de cierre</a>
-							<input type="time" name="hora_cierre_LV" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
+							<input type="time" name="hora_cierre_LV" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_cierre_LV" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
  						</div>
 
 						<div class="mb-5">
 							<label for="horario" class="font-bold mb-1 text-orange-700 block">Sabados</label>
-							<input type="text" name="dia_semana_S" value="Sabados" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
+							<input type="text" name="dia_semana_S" value="Sabados" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="text" name="dia_semana_S" value="Sabados" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
 							<a class="mt-5 text-gray-600">Hora de apertura</a>
-							<input type="time" name="hora_apertura_S" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
+							<input type="time" name="hora_apertura_S"class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_apertura_S" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
 
 							<a class="mt-5 text-gray-600">Hora de cierre</a>
-							<input type="time" name="hora_cierre_S" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						
+							<input type="time" name="hora_cierre_S" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_cierre_S" min="00:00" max="23:00"  
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						 --}}
 						
 						</div>
 
 
 						<div class="mb-5">
 							<label for="horario" class="font-bold mb-1 text-orange-700 block">Domingos y Festivos</label>
-							<input type="text" name="dia_semana_DF" value="Domingos y Festivos" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						
+							<input type="text" name="dia_semana_DF" value="Domingos y Festivos" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="text" name="dia_semana_DF" value="Domingos y Festivos" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						 --}}
 							<a class="mt-5 text-gray-600">Hora de apertura</a>
-							<input type="time" name="hora_apertura_DF" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						 
+							<input type="time" name="hora_apertura_DF" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_apertura_DF" min="00:00" max="23:00" 
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 						  --}}
 							<a class="mt-5 text-gray-600">Hora de cierre</a>
-							<input type="time" name="hora_cierre_DF" min="00:00" max="23:00" step="3600" 
-							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"> 
+							<input type="time" name="hora_cierre_DF" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"/>
+							{{-- <input type="time" name="hora_cierre_DF" min="00:00" max="23:00"  
+							class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium">  --}}
  						</div>
 
 					</div>
@@ -325,13 +335,13 @@
 						<div class="mb-5">
 							<input type="text"
 								class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-								placeholder="Nombre del representante legal..." name="">
+								placeholder="Nombre del representante legal..." name="nombre">
 						</div>
 
 						<div class="mb-5">
 							<input type="text"
 								class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-								placeholder="Apellido del representante legal...">
+								placeholder="Apellido del representante legal..." name="apellido">
 						</div>
 
 						<div class="mb-5">
@@ -452,6 +462,31 @@
 								name="tipo_ocasion" 
 								value="Bike">
 								<label for="servicio"> I have a bike</label><br>
+
+							
+						</div>
+						<br>
+						<label for="nombre_sede" class="font-bold mb-1 text-orange-700 block">Tipo de comida</label>
+						<div class="text-gray-600 mb-5">
+							<input type="checkbox"
+								{{-- id="tipo_comida"  --}}
+								name="tipos_comida" 
+								value="Bike">
+								<label for="servicio"> I have a bike</label><br>
+
+							<input type="checkbox"
+								{{-- id="tipo_comida"  --}}
+								name="tipos_comida" 
+								value="Bike">
+								<label for="servicio"> I have a bike</label><br>
+
+							<input type="checkbox"
+								{{-- id="tipo_comida"  --}}
+								name="tipos_comida" 
+								value="Bike">
+								<label for="servicio"> I have a bike</label><br>
+
+							
 						</div>
 					</div>
 				</div>
