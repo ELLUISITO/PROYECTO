@@ -25,16 +25,40 @@
                             {{ $horario->id_restaurantes }}
                         </div>
                         <div class="form-group">
-                            <strong>Dia Semana:</strong>
-                            {{ $horario->dia_semana }}
+                            <strong>Dia Semana Lv:</strong>
+                            {{ $horario->dia_semana_LV }}
                         </div>
                         <div class="form-group">
-                            <strong>Hora Apertura:</strong>
-                            {{ $horario->hora_apertura }}
+                            <strong>Hora Apertura Lv:</strong>
+                            {{ $horario->hora_apertura_LV }}
                         </div>
                         <div class="form-group">
-                            <strong>Hora Cierre:</strong>
-                            {{ $horario->hora_cierre }}
+                            <strong>Hora Cierre Lv:</strong>
+                            {{ $horario->hora_cierre_LV }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Dia Semana S:</strong>
+                            {{ $horario->dia_semana_S }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Hora Apertura S:</strong>
+                            {{ $horario->hora_apertura_S }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Hora Cierre S:</strong>
+                            {{ $horario->hora_cierre_S }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Dia Semana Df:</strong>
+                            {{ $horario->dia_semana_DF }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Hora Apertura Df:</strong>
+                            {{ $horario->hora_apertura_DF }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Hora Cierre Df:</strong>
+                            {{ $horario->hora_cierre_DF }}
                         </div>
 
                     </div>

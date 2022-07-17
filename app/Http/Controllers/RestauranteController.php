@@ -90,7 +90,7 @@ class RestauranteController extends Controller
 
 
         $restaurante = Restaurante::create([
-            'id_usuarios'           =>  '1',
+            'id_usuarios'           =>  $request->id_usuarios = Auth::id(),
             'nombre_restauarante'   =>  $request->nombre_restauarante,
             'descripcion'           =>  $request->descripcion,
             'telefono'              =>  $request->telefono,

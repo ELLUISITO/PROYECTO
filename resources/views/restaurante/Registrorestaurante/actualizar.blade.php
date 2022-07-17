@@ -15,9 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    {{ __('BIENVENIDOS') }}
-                    {{-- <li class="nav-item"> --}}
-                    {{-- <a class="nav-link" href="{{ route('restaurantes.index') }}">{{ __('Restaurantes') }}</a>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('restaurantes.index') }}">{{ __('Restaurantes') }}</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('horarios.index') }}">{{ __('Horarios') }}</a>
@@ -46,17 +45,12 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('replegals.index') }}">{{ __('Representante Legal') }}</a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('registroRestaurante') }}">REGISTRA TU RESTAURANTE AQUI</a>
-                        </li>
+                            </li>
 
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('actualizar') }}">ACTUALIZA TU INFORMACION AQUI</a>
-                        </li>
-
-
+                    <input type="submit" class="btn" value="Registrar Restaurante :D" />
 
 
                 </div>

@@ -114,9 +114,9 @@
 							<div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Clic para escoger una imagen</div>
 
 							<input name="res_ruta" id="fileInput" accept="image/*" class="hidden" type="file" @change="let" file = document.getElementById('fileInput').files[0]; 
-								var reader = new FileReader();
-								reader.onload = (e) => image = e.target.result;
-								reader.readAsDataURL(file);">
+							var reader = new FileReader();
+							reader.onload = (e) => image = e.target.result;
+							reader.readAsDataURL(file);">
 						</div>
 {{-- INICIO REGISTRO RESTAURANTE --}}
 						<div class="mb-5">

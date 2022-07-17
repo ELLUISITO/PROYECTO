@@ -37,9 +37,15 @@
                                         <th>No</th>
                                         
 										<th>Id Restaurantes</th>
-										<th>Dia Semana</th>
-										<th>Hora Apertura</th>
-										<th>Hora Cierre</th>
+										<th>Dia Semana Lv</th>
+										<th>Hora Apertura Lv</th>
+										<th>Hora Cierre Lv</th>
+										<th>Dia Semana S</th>
+										<th>Hora Apertura S</th>
+										<th>Hora Cierre S</th>
+										<th>Dia Semana Df</th>
+										<th>Hora Apertura Df</th>
+										<th>Hora Cierre Df</th>
 
                                         <th></th>
                                     </tr>
@@ -50,9 +56,15 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $horario->id_restaurantes }}</td>
-											<td>{{ $horario->dia_semana }}</td>
-											<td>{{ $horario->hora_apertura }}</td>
-											<td>{{ $horario->hora_cierre }}</td>
+											<td>{{ $horario->dia_semana_LV }}</td>
+											<td>{{ $horario->hora_apertura_LV }}</td>
+											<td>{{ $horario->hora_cierre_LV }}</td>
+											<td>{{ $horario->dia_semana_S }}</td>
+											<td>{{ $horario->hora_apertura_S }}</td>
+											<td>{{ $horario->hora_cierre_S }}</td>
+											<td>{{ $horario->dia_semana_DF }}</td>
+											<td>{{ $horario->hora_apertura_DF }}</td>
+											<td>{{ $horario->hora_cierre_DF }}</td>
 
                                             <td>
                                                 <form action="{{ route('horarios.destroy',$horario->id) }}" method="POST">
