@@ -1,60 +1,634 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelmaker</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ route('home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('register') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="{{ asset('css/principal_estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/img.css') }}" rel="stylesheet">
+
+    {{--
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/img.css"> 
+    --}}
+</head>
+
+<body>
+
+    <aside class="aside-nav-wrapper">
+        <div class="aside-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="aside-nav-content">
+
+            <div class="aside-sigin-button">Sign in</div>
+
+            <div class="navigation-wrapper-link-large">
+                <div>
+                    <span>Review</span>
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
+                <div>
+                    <span>Alerts</span>
                 </div>
+                <div>
+                    <span>Trips</span>
+                </div>
+                <div>
+                    <span>Bookings</span>
+                </div>
+            </div>
+            <hr>
+            <div class="navigation-wrapper-link-small">
+                <div>Hotels</div>
+                <div>Things to do</div>
+                <div>Restaurants</div>
+                <div>Flights</div>
+                <div>Vacation Rentals</div>
+                <div>Shopping</div>
+                <div>Vacation Packages</div>
+                <div>Cruises</div>
+                <div>Rentals Cars</div>
+                <div>More</div>
+            </div>
+        </div>
+    </aside>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="wrapper header-wrapper">
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <img src="./img/travelmaker_logo.png" alt="">
+
+            <div class="header-search-wrapper">
+                <div class="header-search-content">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="">
+                </div>
+            </div>
+
+            <div class="header-buttons">
+                <button class="pencil">
+                    <i class="fas fa-pencil-alt"></i><span>Review</span>
+                </button>
+                <button class="heart">
+                    <i class="far fa-heart"></i><span>Trips</span>
+                </button>
+                <button class="bell">
+                    <i class="far fa-bell"></i><span>Alerts</span>
+                </button>
+                <button class="sign-in "><span>Sign in</span></button>
+
+                <div class="header-search-button">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <nav>
+        <div class="wrapper">
+            <div class="nav-wrapper grid navigation-carousel">
+                <div class="nav-tile"><span>Hotels</span> <i class="fas fa-bed"></i></div>
+                <div class="nav-tile"><span>Vacation Rentals</span> <i class="fas fa-key"></i></div>
+                <div class="nav-tile"><span>Things to Do</span> <i class="fas fa-clipboard-list"></i></div>
+                <div class="nav-tile"><span>Restaurants</span> <i class="fas fa-utensils"></i></div>
+                <div class="nav-tile"><span>Travel Forums</span> <i class="fas fa-comments"></i></div>
+                <div class="nav-tile extra-button">
+                    <span>Flights</span> <i class="fas fa-plane"></i>
+                </div>
+                <div class="nav-tile extra-button"><span>Cruises</span> <i class="fas fa-ship"></i></div>
+                <div class="nav-tile"><span>More</span> <i class="fas fa-ellipsis-h"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <form class="search-banner" method="GET" action="{{route ('servicios.index')}}">
+            <div class="wrapper no-padding">
+                <div class="search-wrapper">
+                    <div class="search-bubble">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                        <input type="text" name="buscar" placeholder="QUE BUSCAS?" >
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <section class="vip-member">
+            <div class="wrapper">
+                <h2>VIP Cool stays</h2>
+                <p>Where Travelmaker VIP members are staying and saving</p>
+                <div class="main-carousel">
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-1">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
 
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                      
+
+
+
+                        
+                        <h4>South Beach Hotel</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot">
+                                <div class="half"></div>
+                            </div>
+                            <span>4,192</span>
+                        </div>
+                        <span class="second-text">from $240/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-2">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Miami Soho Beach House</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <span>3,457</span>
+                        </div> <span class="second-text">from $430/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-3">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Tropical Hotel</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot">
+                                <div class="half"></div>
+                            </div>
+                            <span>4,609</span>
+                        </div> <span class="second-text">from $520/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-4">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Indonesia Mystic Palace</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot empty"></div>
+                            <span>2,490</span>
+                        </div> <span class="second-text">from $150/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-5">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Dubai Oriental Hotel</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <span>3,523</span>
+                        </div> <span class="second-text">from $400/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-6">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>California Dreamin</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot empty"></div>
+                            <span>4,685</span>
+                        </div> <span class="second-text">from $180/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-7">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Thailand hotel</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <span>3,422</span>
+                        </div> <span class="second-text">from $550/night</span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="carousel-pic-default vip-pic-8">
+                            <div class="vip-logo"></div>
+                            <button class="like-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <h4>Cambodia Tropical Resort</h4>
+                        <div class="review-dots">
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot"></div>
+                            <div class="rev-dot">
+                                <div class="half"></div>
+                            </div>
+                            <span>3,543</span>
+                        </div> <span class="second-text">from $350/night</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-rentals">
+            <div class="wrapper">
+                <div class="rentals-wrapper grid">
+                    <h2>Home Rentals Near You</h2>
+                    <p>We think you'd enjoy these homes for a quick trip out of town.</p>
+                    <div class="rentals-carousel">
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-1"></div>
+                            <h4>Rentals in New York City</h4>
+                            <span class="rentals-amount">634 rentals</span>
+                        </div>
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-2"></div>
+                            <h4>Rentals in Houston</h4>
+                            <span class="rentals-amount">359 rentals</span>
+                        </div>
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-3"></div>
+                            <h4>Rentals in Chicago</h4>
+                            <span class="rentals-amount">289 rentals</span>
+                        </div>
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-4"></div>
+                            <h4>Rentals in Los Angeles</h4>
+                            <span class="rentals-amount">451 rentals</span>
+                        </div>
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-5"></div>
+                            <h4>Rentals in Phoenix</h4>
+                            <span class="rentals-amount">227 rentals</span>
+                        </div>
+                        <div class="carousel-cell-rentals">
+                            <div class="carousel-pic-rentals rentals-pic-6"></div>
+                            <h4>Rentals in Philadelphia</h4>
+                            <span class="rentals-amount">358 rentals</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="more-to-explore">
+            <div class="wrapper">
+                <div class="explore-wrapper">
+                    <h2>More to explore</h2>
+                    <div class="explore-carousel">
+                        <div class="carousel-cell-explore">
+                            <div class="carousel-pic-explore explore-pic-1">
+                                <button class="like-heart">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <span>From Travelmaker</span>
+                            <h4>Why Fall Is the Perfect Time to Visit Our National Parks</h4>
+                        </div>
+                        <div class="carousel-cell-explore">
+                            <div class="carousel-pic-explore explore-pic-2">
+                                <button class="like-heart">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <span>From Travelmaker</span>
+                            <h4>A Guide to Last-Minute Road Trips You Can Do Right Now</h4>
+                        </div>
+                        <div class="carousel-cell-explore">
+                            <div class="carousel-pic-explore explore-pic-3">
+                                <button class="like-heart">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <span>From Travelmaker</span>
+                            <h4>All the Ways We're Celebrating Hispanic Heritage Month</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hire-banner">
+            <div class="wrapper">
+                <div class="hire-banner-wrapper grid">
+                    <div class="hire-text-wrapper grid">
+                        <div class="hire-text">
+                            <h2>Don't go it alone.
+                                Hire an expert to craft your trip.
+                            </h2>
+                        </div>
+                        <div class="hire-button grid">
+                            <button>Learn more</button>
+                        </div>
+                    </div>
+                    <div class="hire-pic-wrapper hire-pic"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations">
+            <div class="wrapper">
+                <h2 class="destinations-header">Destinations travelers love</h2>
+                <div class="destinations-carousel">
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-1">
+                            <div class="destinations-text">
+                                <p>Yellowstone National Park, WY</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-2">
+                            <div class="destinations-text">
+                                <p>Punta Cana, Dominican Republic</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-3">
+                            <div class="destinations-text">
+                                <p>Maui, HI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-4">
+                            <div class="destinations-text">
+                                <p>Orlando, FL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-5">
+                            <div class="destinations-text">
+                                <p>Sedona, AZ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-6">
+                            <div class="destinations-text">
+                                <p>Cancun, Mexico</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-7">
+                            <div class="destinations-text">
+                                <p>New York City, NY</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-cell-destinations">
+                        <div class="carousel-pic-default destinations-pic destinations-pic-8">
+                            <div class="destinations-text">
+                                <p>Las Vegas, NV</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="travelmaker-get-more">
+            <div class="wrapper no-padding">
+                <div class="get-more-bg get-more-pic">
+                    <div class="get-more-text-wrapper">
+                        <h2>Get more of what you've been missing.</h2>
+                        <div>Introducing Travelmaker VIP. Endless travel savings, one simple membership.</div>
+                        <button>Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="links1">
+                    <div class="footer-section-header accordion">
+                        About Travelmaker
+                    </div>
+                    <div class="footer-links-wrapper panel">
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Resources and Policies</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Investor Relations</a></li>
+                            <li><a href="#">Content Integrity</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="links2">
+                    <div class="footer-section-header accordion">
+                        Explore
+                    </div>
+                    <div class="footer-links-wrapper panel">
+                        <ul class="footer-links">
+                            <li><a href="#">Write a review</a></li>
+                            <li><a href="#">Add a Place</a></li>
+                            <li><a href="#">Join</a></li>
+                            <li><a href="#">Travelers' Choice</a></li>
+                            <li><a href="#">Insurance</a></li>
+                            <li><a href="#">GreenLeaders</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Travelmaker VIP</a></li>
+                            <li><a href="#">Travel Articles</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="links3">
+                    <div class="footer-section-header accordion">
+                        Do Business With Us
+                    </div>
+                    <div class="footer-links-wrapper panel">
+                        <ul class="footer-links">
+                            <li><a href="#">Owners</a></li>
+                            <li><a href="#">Business Advantage</a></li>
+                            <li><a href="#">Sponsored Placements</a></li>
+                            <li><a href="#">Advertise with Us</a></li>
+                            <li><a href="#">Become an Affiliate</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section-header accordion">
+                        Get The App
+                    </div>
+                    <div class="footer-links-wrapper panel">
+                        <ul class="footer-links">
+                            <li><a href="#">iPhone App</a></li>
+                            <li><a href="#">Android App</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="partners">
+                    <div class="footer-section-header accordion">
+                        Travelmaker Sites
+                    </div>
+                    <div class="footer-links-wrapper panel">
+                        <ul class="footer-links">
+                            <li>
+                                <p>Discover your dream destination with</p>
+                                <a href="#">Jester's Tear</a>
+                            </li>
+                            <li>
+                                <p>Book the best restaurants with</p>
+                                <a href="#">ThePork</a>
+                            </li>
+                            <li>
+                                <p>Book tours and attraction tickets on</p>
+                                <a href="#">Viagrator</a>
+                            </li>
+                            <li>
+                                <p>Read cruise reviews on</p>
+                                <a href="#">Tom Critic</a>
+                            </li>
+                            <li>
+                                <p>Get airline seating charts on</p>
+                                <a href="#">Guru Air</a>
+                            </li>
+                            <li>
+                                <p>Find vacation rentals on</p>
+                                <a href="#">KeyKey</a>
+                            </li>
+                            <li>
+                                <p>Search for holiday rentals on</p>
+                                <a href="#">RentMePlease</a>
+                            </li>
+                            <li>
+                                <p>Find a vacation home on</p>
+                                <a href="#">Piss Neighbors Off</a>
+                            </li>
+                            <li>
+                                <p>Plan and book your next trip with</p>
+                                <a href="#">Unforgettable Holidays</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pickers">
+                    <div class="currency">$ USD</div>
+                    <div class="country">United States</div>
+                </div>
+                <div class="social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="legal">
+                    <div class="terms-wrapper">
+                        <div class="footer-logo">
+                            <img src="./img/travelmaker_logo_mini.png" alt="">
+                        </div>
+                        <div class="terms-text-wrapper">
+                            <div class="rights-reserved">
+                                <p>© 2021 Travelmaker LLC All rights reserved :)</p>
+                            </div>
+                            <div class="footer-links-wrapper">
+                                <div class="footer-links terms-links">
+                                    <span><a href="#">Terms of Use</a></span>
+                                    <span><a href="#">Privacy and Cookies Statement</a></span>
+                                    <span><a href="#">Cookie consent</a></span>
+                                    <span><a href="#">Site Map</a></span>
+                                    <span><a href="#">How the site works</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="region-notice">This is the version of our website addressed to speakers of English in
+                        the
+                        United States. If you
+                        are a resident of
+                        another country or region, please select the appropriate version of Travelmaker for your
+                        country
+                        or region in the
+                        drop-down menu. <a href="#">more</a></p>
+                </div>
+
+                <div class="a">
+                    <a href="http://www.freepik.com" class="additional-resources">Designed by pch.vector /
+                        Freepik
+                    </a>
                 </div>
             </div>
         </div>
-    </body>
+    </footer>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="{{ asset('js/flickity.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+
+    {{-- <script src="./js/main.js"></script>
+    <script src="./js/flickity.js"></script> --}}
+
+</body>
+
 </html>
+<img src="" alt="">

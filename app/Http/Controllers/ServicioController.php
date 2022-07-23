@@ -20,6 +20,19 @@ class ServicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function index(Request $request)
+    {
+       
+        $buscar = $request -> buscar;
+        $servicios=servicio::where ('servicio','LIKE','%'.$buscar.'%')->latest('id')->paginate(5);
+        $data=['servicios'=>$servicios,];
+        return view('servicio.index',$data) ->with('i');
+   
+    }
+
+/*
     public function index()
     {
         $servicios = Servicio::paginate();
@@ -27,7 +40,7 @@ class ServicioController extends Controller
         return view('servicio.index', compact('servicios'))
             ->with('i', (request()->input('page', 1) - 1) * $servicios->perPage());
     }
-
+  */
     /**
      * Show the form for creating a new resource.
      *
